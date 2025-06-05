@@ -1,0 +1,31 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useState } from 'react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Input } from '@/components/components/ui/input';
+import { useToast } from '@/components/hooks/use-toast';
+const DevOpsContact = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+    const { toast } = useToast();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission here
+        toast({
+            title: "Message Sent!",
+            description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+    };
+    const handleChange = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
+    };
+    return (_jsx("section", { id: "contact", className: "py-20 bg-white dark:bg-gray-900", children: _jsxs("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: [_jsxs("div", { className: "text-center mb-16", children: [_jsx("h2", { className: "text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4", children: "Let's Work Together" }), _jsx("p", { className: "text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto", children: "Ready to optimize your infrastructure and streamline your deployment processes? Let's discuss your DevOps needs." })] }), _jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-12", children: [_jsxs("div", { className: "space-y-8", children: [_jsxs("div", { children: [_jsx("h3", { className: "text-2xl font-bold text-gray-900 dark:text-white mb-6", children: "Get In Touch" }), _jsx("p", { className: "text-gray-600 dark:text-gray-300 mb-8", children: "I'm always interested in discussing new opportunities and challenging DevOps projects. Feel free to reach out!" })] }), _jsxs("div", { className: "space-y-6", children: [_jsxs("div", { className: "flex items-center space-x-4", children: [_jsx("div", { className: "bg-blue-100 dark:bg-blue-900 p-3 rounded-lg", children: _jsx(Mail, { className: "h-6 w-6 text-blue-600 dark:text-blue-400" }) }), _jsxs("div", { children: [_jsx("h4", { className: "text-lg font-medium text-gray-900 dark:text-white", children: "Email" }), _jsx("p", { className: "text-gray-600 dark:text-gray-300", children: "sholihin.013@gmail.com" })] })] }), _jsxs("div", { className: "flex items-center space-x-4", children: [_jsx("div", { className: "bg-green-100 dark:bg-green-900 p-3 rounded-lg", children: _jsx(Phone, { className: "h-6 w-6 text-green-600 dark:text-green-400" }) }), _jsxs("div", { children: [_jsx("h4", { className: "text-lg font-medium text-gray-900 dark:text-white", children: "Phone" }), _jsx("p", { className: "text-gray-600 dark:text-gray-300", children: "+62 (812) 9109-6434" })] })] }), _jsxs("div", { className: "flex items-center space-x-4", children: [_jsx("div", { className: "bg-purple-100 dark:bg-purple-900 p-3 rounded-lg", children: _jsx(MapPin, { className: "h-6 w-6 text-purple-600 dark:text-purple-400" }) }), _jsxs("div", { children: [_jsx("h4", { className: "text-lg font-medium text-gray-900 dark:text-white", children: "Location" }), _jsx("p", { className: "text-gray-600 dark:text-gray-300", children: "Jakarta, Indonesia" })] })] })] }), _jsxs("div", { className: "bg-gray-50 dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700", children: [_jsx("h4", { className: "text-lg font-medium text-gray-900 dark:text-white mb-3", children: "Available for:" }), _jsxs("ul", { className: "space-y-2 text-gray-600 dark:text-gray-300", children: [_jsx("li", { children: "\u2022 Full-time DevOps Engineering roles" }), _jsx("li", { children: "\u2022 CI/CD pipeline optimization" }), _jsx("li", { children: "\u2022 Container orchestration projects" })] })] })] }), _jsxs("div", { className: "bg-gray-50 dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700", children: [_jsx("h3", { className: "text-2xl font-bold text-gray-900 dark:text-white mb-6", children: "Send Message" }), _jsxs("form", { onSubmit: handleSubmit, className: "space-y-6", children: [_jsxs("div", { className: "grid grid-cols-1 sm:grid-cols-2 gap-4", children: [_jsxs("div", { children: [_jsx("label", { htmlFor: "name", className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2", children: "Name" }), _jsx(Input, { type: "text", id: "name", name: "name", value: formData.name, onChange: handleChange, required: true, className: "bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600" })] }), _jsxs("div", { children: [_jsx("label", { htmlFor: "email", className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2", children: "Email" }), _jsx(Input, { type: "email", id: "email", name: "email", value: formData.email, onChange: handleChange, required: true, className: "bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600" })] })] }), _jsxs("div", { children: [_jsx("label", { htmlFor: "subject", className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2", children: "Subject" }), _jsx(Input, { type: "text", id: "subject", name: "subject", value: formData.subject, onChange: handleChange, required: true, className: "bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600" })] }), _jsxs("div", { children: [_jsx("label", { htmlFor: "message", className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2", children: "Message" }), _jsx("textarea", { id: "message", name: "message", rows: 5, value: formData.message, onChange: handleChange, required: true, className: "w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-blue-500 focus:border-blue-500" })] }), _jsxs("button", { type: "submit", className: "w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2", children: [_jsx(Send, { size: 20 }), _jsx("span", { children: "Send Message" })] })] })] })] })] }) }));
+};
+export default DevOpsContact;

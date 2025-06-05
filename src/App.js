@@ -1,0 +1,12 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Toaster } from "@/components/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/components/ui/sonner";
+import { TooltipProvider } from "@/components/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import DevOpsIndex from "./pages/DevOpsIndex";
+import DevOpsNavbar from "./components/DevOpsNavbar";
+const queryClient = new QueryClient();
+const App = () => (_jsx(QueryClientProvider, { client: queryClient, children: _jsx(ThemeProvider, { children: _jsxs(TooltipProvider, { children: [_jsx(Toaster, {}), _jsx(Sonner, {}), _jsx(BrowserRouter, { children: _jsxs("div", { className: "min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300", children: [_jsx(DevOpsNavbar, {}), _jsx("main", { children: _jsx(Routes, { children: _jsx(Route, { path: "/", element: _jsx(DevOpsIndex, {}) }) }) })] }) })] }) }) }));
+export default App;
