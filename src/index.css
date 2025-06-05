@@ -1,0 +1,378 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+
+  body {
+    @apply font-sans;
+    @apply font-sans bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  html {
+    @apply scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent-foreground/20;
+  }
+}
+
+@layer components {
+  /* Portfolio specific components */
+  .portfolio-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .portfolio-section {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .portfolio-card {
+    @apply bg-card rounded-xl border border-border p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .portfolio-button {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  .portfolio-button-primary {
+    @apply portfolio-button bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .portfolio-button-secondary {
+    @apply portfolio-button bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .portfolio-button-outline {
+    @apply portfolio-button border border-border bg-background hover:bg-accent hover:text-accent-foreground;
+  }
+
+  /* Typography */
+  .portfolio-heading-1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight;
+  }
+
+  .portfolio-heading-2 {
+    @apply text-3xl md:text-4xl font-bold text-foreground leading-tight;
+  }
+
+  .portfolio-heading-3 {
+    @apply text-2xl md:text-3xl font-semibold text-foreground;
+  }
+
+  .portfolio-text-lead {
+    @apply text-lg md:text-xl text-muted-foreground leading-relaxed;
+  }
+
+  .portfolio-text-body {
+    @apply text-base text-muted-foreground leading-relaxed;
+  }
+
+  /* Skill badges */
+  .skill-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200;
+  }
+
+  .skill-badge-blue {
+    @apply skill-badge bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400;
+  }
+
+  .skill-badge-green {
+    @apply skill-badge bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400;
+  }
+
+  .skill-badge-purple {
+    @apply skill-badge bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400;
+  }
+
+  .skill-badge-orange {
+    @apply skill-badge bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400;
+  }
+
+  /* Glass morphism effect */
+  .glassmorphism {
+    @apply backdrop-blur-sm bg-background/80 border border-border/50 rounded-xl;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/10;
+  }
+
+  /* Animations */
+  .fade-in {
+    @apply animate-in fade-in-0 duration-700;
+  }
+
+  .slide-up {
+    @apply animate-in slide-in-from-bottom-8 duration-700;
+  }
+
+  .slide-left {
+    @apply animate-in slide-in-from-right-8 duration-700;
+  }
+
+  .slide-right {
+    @apply animate-in slide-in-from-left-8 duration-700;
+  }
+
+  /* Link styles */
+  .portfolio-link {
+    @apply text-primary hover:text-primary/80 transition-colors duration-200 relative;
+  }
+
+  .portfolio-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-right transition-transform duration-300;
+  }
+
+  .portfolio-link:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  /* Grid layouts */
+  .portfolio-grid {
+    @apply grid gap-6 md:gap-8;
+  }
+
+  .portfolio-grid-2 {
+    @apply portfolio-grid grid-cols-1 md:grid-cols-2;
+  }
+
+  .portfolio-grid-3 {
+    @apply portfolio-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .portfolio-grid-4 {
+    @apply portfolio-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  /* Status indicators */
+  .status-dot {
+    @apply w-3 h-3 rounded-full;
+  }
+
+  .status-online {
+    @apply status-dot bg-green-500;
+  }
+
+  .status-offline {
+    @apply status-dot bg-gray-400;
+  }
+
+  .status-busy {
+    @apply status-dot bg-red-500;
+  }
+
+  /* Progress bars */
+  .progress-bar {
+    @apply w-full bg-muted rounded-full h-2 overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-primary transition-all duration-500 ease-out;
+  }
+
+  /* Icon containers */
+  .icon-container {
+    @apply inline-flex items-center justify-center rounded-lg p-3 transition-colors duration-200;
+  }
+
+  .icon-container-primary {
+    @apply icon-container bg-primary/10 text-primary;
+  }
+
+  .icon-container-secondary {
+    @apply icon-container bg-secondary text-secondary-foreground;
+  }
+
+  /* Form styles */
+  .form-group {
+    @apply space-y-2;
+  }
+
+  .form-label {
+    @apply text-sm font-medium text-foreground;
+  }
+
+  .form-input {
+    @apply w-full px-3 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors duration-200;
+  }
+
+  .form-textarea {
+    @apply form-input min-h-[100px] resize-vertical;
+  }
+
+  /* Social media icons */
+  .social-icon {
+    @apply w-10 h-10 rounded-full flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent transition-colors duration-200;
+  }
+
+  /* Timeline styles */
+  .timeline-item {
+    @apply relative pl-8 pb-8;
+  }
+
+  .timeline-item::before {
+    @apply content-[''] absolute left-0 top-0 w-0.5 h-full bg-border;
+  }
+
+  .timeline-item::after {
+    @apply content-[''] absolute left-[-4px] top-2 w-2 h-2 bg-primary rounded-full;
+  }
+
+  .timeline-item:last-child::before {
+    @apply hidden;
+  }
+}
+
+@layer utilities {
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Layout utilities */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr min(65ch, 100%) 1fr;
+  }
+
+  .content-grid > * {
+    grid-column: 2;
+  }
+
+  .content-grid > .full-width {
+    grid-column: 1 / -1;
+  }
+
+  /* Animation delays */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    color: black !important;
+    background: white !important;
+  }
+
+  .portfolio-card {
+    border: 1px solid #e5e7eb !important;
+    box-shadow: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .portfolio-card {
+    @apply border-2;
+  }
+
+  .portfolio-button {
+    @apply border-2 border-foreground;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

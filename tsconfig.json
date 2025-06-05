@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useArbitraryExtensions": true,
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    // >>> Bagian ini yang perlu ditambahkan atau diperbarui <<<
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/contexts/*": ["./src/contexts/*"],
+      // Anda bisa menambahkan alias lain sesuai kebutuhan, contoh:
+      // "@/assets/*": ["./src/assets/*"]
+    }
+    // >>> Akhir dari bagian yang perlu ditambahkan/diperbarui <<<
+  },
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
